@@ -1,3 +1,4 @@
+// Importaçao de dependências e configuração do ambiente
 import {DataTypes} from 'sequelize'
 import bcrypt from 'bcrypt'
 import connection from '../config/database.js'
