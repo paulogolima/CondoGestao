@@ -1,0 +1,101 @@
+BASE URL: http://localhost:PORT
+Token: Header > Authorization: Bearer SEU_TOKEN
+----------------------------------------------------
+
+-- USUÁRIOS --
+
+[1] Cadastrar usuário
+POST /usuarios/cadastrar
+{ 
+    "name": "Admin", 
+    "email": "admin@adm.com", 
+    "password": "123456", 
+    "role": "admin" 
+}
+
+[2] Login
+POST /usuarios/login
+{ 
+    "email": "admin@adm.com", 
+    "password": "123456" 
+}
+
+>> Copie o token retornado
+
+[3] Listar usuários  (token + admin)
+GET /usuarios/listar
+
+[4] Atualizar usuário  (token + admin)
+PUT /usuarios/1
+{ 
+    "name": "Admin Atualizado", 
+    "email": "admin@adm.com", 
+    "password": "123456", 
+    "role": "admin" 
+}
+
+[5] Deletar usuário  (token + admin)
+DELETE /usuarios/1
+
+----------------------------------------------------
+
+-- UNIDADES --
+
+[4] Cadastrar unidade  (token + admin)
+POST /unidade/cadastrar
+{ 
+    "bloco": "A", 
+    "numero": 101, 
+    "status": "vago"
+}
+
+[5] Listar unidades  (token)
+GET /unidade/listar
+
+[6] Atualizar unidade  (token + admin)
+PUT /unidade/1
+{ 
+    "bloco": "A", 
+    "numero": 101, 
+    "status": "ocupado" 
+}
+
+[7] Deletar unidade  (token + admin)
+DELETE /unidade/1
+
+----------------------------------------------------
+
+-- MORADORES --
+
+[8] Cadastrar morador  (token + admin)
+POST /morador/cadastrar
+{ 
+    "name": "João Silva", 
+    "cpf": "123.456.789-00", 
+    "telefone": "11999999999", 
+    "tipo": "proprietario", 
+    "unidadeId": 1 
+}
+
+[9] Listar moradores  (token)
+GET /morador/listar
+
+[10] Atualizar morador  (token + admin)
+PUT /morador/1
+{ 
+    "name": "João Silva", 
+    "cpf": "123.456.789-00", 
+    "telefone": "11988888888", 
+    "tipo": "inquilino", 
+    "unidadeId": 1 
+}
+
+[11] Deletar morador  (token + admin)
+DELETE /morador/1
+
+----------------------------------------------------
+
+-- ORDEM RECOMENDADA --
+1. Cadastrar usuário > 2. Login (copiar token) > 3. Cadastrar unidade
+4. Cadastrar morador > 5. Listar > 6. Atualizar > 7. Deletar morador > 8. Deletar unidade
+
